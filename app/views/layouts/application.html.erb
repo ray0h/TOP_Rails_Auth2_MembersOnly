@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TOPRailsAuth2Membersonly</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-right">
+        <h1>Members Only</h1>
+      </div>
+      <div class="nav-left">
+        <% if user_signed_in? %>
+          <%= current_user.username %>
+          <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Log In', new_user_session_path %>
+        <% end %>
+        <%= link_to 'Sign Up', new_user_registration_path %>
+      </div>
+    </div>
+  </nav>
+  
+    <%= yield %>
+  </body>
+</html>

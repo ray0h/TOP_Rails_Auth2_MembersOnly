@@ -1,0 +1,18 @@
+<%# index view %>
+Index View
+<hr>
+<%# current_user.username %><br>
+<%# if user_signed_in? %>
+  <%= link_to 'Create New Post', new_post_path %>
+<%# end %>
+
+<% @posts.each do |post| %>
+  <div>
+    <% if user_signed_in? %>
+      <p><%= post.user.username %></p>
+    <% else %>
+      <p><strong>Anon</strong></p>
+    <% end %>
+    <p><%= post.body %></p>
+  </div>
+<% end %>
