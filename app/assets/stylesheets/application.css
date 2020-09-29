@@ -20,10 +20,10 @@
 
  .navbar {
     width: 100%;
-    background-color: gray;
+    background-color: lightgray;
     position: sticky;
     top: 0px;
-    padding: 5px;
+    padding: 0 10px;
  }
 
  .nav-container {
@@ -31,10 +31,58 @@
     justify-content: space-between;
  }
 
+ .nav-right {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+ }
+
  .nav-left {
-   margin-right: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: 15px;
+    align-items: center;
+ }
+
+ .nav-user {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
  }
 
  .button {
+    background-color: #08f;
+    color: white;
+    padding: 2px 10px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 5px;
+    border-radius: 5%;
+ }
 
+ .col-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+
+ .col-item {
+   margin: auto;
+   border: 1px solid #000;
+   margin: 5px;
+   padding: 10px;
+   width: 350px;
+ }
+
+ .marg-0 {
+   margin: 0;
+ }
+
+ .marg-5 {
+   margin: 5px 0;
+ }
+ 
+ .lmarg-5 {
+   margin-left: 5px;
  }

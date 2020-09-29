@@ -1,18 +1,14 @@
-<%# index view %>
-Index View
-<hr>
-<%# current_user.username %><br>
-<%# if user_signed_in? %>
-  <%= link_to 'Create New Post', new_post_path %>
-<%# end %>
 
-<% @posts.each do |post| %>
-  <div>
-    <% if user_signed_in? %>
-      <p><%= post.user.username %></p>
-    <% else %>
-      <p><strong>Anon</strong></p>
-    <% end %>
-    <p><%= post.body %></p>
-  </div>
-<% end %>
+<div class="col-container">
+  
+  <% @posts.each do |post| %>
+    <div class="col-item">
+      <% if user_signed_in? %>
+        <p class="marg-5"><%= post.user.username %>, <small><%= distance_of_time_in_words(Time.now, post.created_at) %> ago</small></p>
+      <% else %>
+        <p><strong>Anon</strong>, <small><%= distance_of_time_in_words(Time.now, post.created_at) %> ago</small></p>
+      <% end %>
+      <p><em><%= post.body %></em></p>
+    </div>
+  <% end %>
+</div>
