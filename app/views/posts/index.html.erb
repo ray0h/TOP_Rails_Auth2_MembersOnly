@@ -1,14 +1,26 @@
 
 <div class="col-container">
-  
   <% @posts.each do |post| %>
     <div class="col-item">
+      <h3 class='marg-0'><u>Post</u></h3>
       <% if user_signed_in? %>
         <p class="marg-5"><%= post.user.username %>, <small><%= distance_of_time_in_words(Time.now, post.created_at) %> ago</small></p>
       <% else %>
         <p><strong>Anon</strong>, <small><%= distance_of_time_in_words(Time.now, post.created_at) %> ago</small></p>
       <% end %>
-      <p><em><%= post.body %></em></p>
+      <p>
+        <em><%= post.body %></em>
+      </p>
+      <% if post.comments.count > 0 %>
+ 
+          <h3 class='marg-0'><u>Comments</u></h3>
+          <%= render post.comments.order('created_at DESC') %>
+    
+      <% end %>
+      <br/>
+      <% if user_signed_in? %>
+        <%= link_to 'Comment', post_path(post), class: 'button' %>
+      <% end %>
     </div>
   <% end %>
 </div>

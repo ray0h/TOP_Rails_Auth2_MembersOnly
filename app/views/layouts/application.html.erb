@@ -9,15 +9,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-right">
-        <h1>Members Only</h1>
+  <nav class='navbar'>
+    <div class='nav-container'>
+      <div class='nav-right'>
+        <h1><%= link_to 'Members Only', root_path, class: 'h-link' %></h1>
         <% if user_signed_in? %>
           <%= link_to 'New Post', new_post_path, class: 'button lmarg-5' %>
         <% end %>
       </div>
-      <div class="nav-left">
+      <div class='nav-left'>
         <% if user_signed_in? %>
           <div class='nav-user'><%= current_user.username %></div>
           <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'button' %>

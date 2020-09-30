@@ -1,0 +1,7 @@
+
+<% if user_signed_in? %>
+  <p class='marg-5 lmarg-10'><%= comment.user.username %>, <small><%= distance_of_time_in_words(Time.now, comment.created_at) %> ago</small></p>
+<% else %>
+  <p class='marg-5 lmarg-10'><strong>Anon</strong>, <small><%= distance_of_time_in_words(Time.now, comment.created_at) %> ago</small></p>  
+<% end %>
+<p class='marg-5 lmarg-10'><em><%= comment.body %></em></p>

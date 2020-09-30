@@ -1,0 +1,6 @@
+<%= form_with(model: [@post, @post.comments.new], local: true ) do |f| %>
+  <%= f.text_area :body, autofocus: true, size: '35x2' %><br/>
+  <%= f.submit 'Comment' %>
+<% end %>
+<br/>
+<%= link_to 'Cancel', root_path, class: 'button'%>

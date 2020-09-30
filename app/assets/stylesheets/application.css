@@ -16,6 +16,19 @@
 
  body {
    margin: 0;
+   background-color: #111;
+   color: #ccc;
+   font-family: Arial, Helvetica, sans-serif;
+ }
+
+ textarea {
+   width: 45em;
+   background-color: #ccc;
+ }
+
+ .h-link {
+   text-decoration: none;
+   color: #000;
  }
 
  .navbar {
@@ -24,6 +37,7 @@
     position: sticky;
     top: 0px;
     padding: 0 10px;
+    color: #000;
  }
 
  .nav-container {
@@ -69,10 +83,10 @@
 
  .col-item {
    margin: auto;
-   border: 1px solid #000;
+   border: 1px solid #eee;
    margin: 5px;
-   padding: 10px;
-   width: 350px;
+   padding: 10px 30px;
+   width: 600px;
  }
 
  .marg-0 {
@@ -85,4 +99,19 @@
  
  .lmarg-5 {
    margin-left: 5px;
+ }
+
+ .lmarg-10 {
+   margin-left: 10px;
+ }
+
+ @media (max-width: 768px) {
+  .col-item {
+    width: 350px;
+    padding: 10px;
+  } 
+
+  textarea {
+    width: 26em;
+  }
  }

@@ -1,0 +1,15 @@
+<div class="col-container">
+  <div class="col-item">
+    <% if user_signed_in? %>
+      <p class="marg-5"><%= @post.user.username %>, <small><%= distance_of_time_in_words(Time.now, @post.created_at) %> ago</small></p>
+    <% else %>
+      <p><strong>Anon</strong>, <small><%= distance_of_time_in_words(Time.now, @post.created_at) %> ago</small></p>
+    <% end %>
+    <p>
+      <em><%= @post.body %></em>
+    </p>
+  <%# render @post.comments %>
+  <%= render 'comments/form'%>
+  </div>
+</div>
+      
