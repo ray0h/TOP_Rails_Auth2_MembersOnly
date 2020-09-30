@@ -1,8 +1,23 @@
 
 <div class="col-container">
+  <% if @posts.count.zero? %>
+    <div class="col-item">
+      <h2 class='center-text'>Create a Post!<h2>
+    </div>
+  <% end %>
   <% @posts.each do |post| %>
     <div class="col-item">
-      <h3 class='marg-0'><u>Post</u></h3>
+      <h3 class='marg-0'>
+        <u>Post</u>
+        <% if user_signed_in? && current_user.id == post.user.id %>
+          <%= link_to edit_post_path(post), class: 'blank-link white-color' do %>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          <% end %>
+          <%= link_to post, class: 'blank-link white-color', method: :delete, data: { confirm: "are you sure you want to delete this post?" } do %>
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          <% end %>
+        <% end %>
+      </h3>
       <% if user_signed_in? %>
         <p class="marg-5"><%= post.user.username %>, <small><%= distance_of_time_in_words(Time.now, post.created_at) %> ago</small></p>
       <% else %>

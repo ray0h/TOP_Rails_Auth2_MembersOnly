@@ -26,9 +26,18 @@
    background-color: #ccc;
  }
 
- .h-link {
+ .blank-link {
    text-decoration: none;
    color: #000;
+   margin: 0 5px;
+ }
+
+ .white-color {
+   color: #ccc
+ }
+
+ .center-text {
+   text-align: center;
  }
 
  .navbar {

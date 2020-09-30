@@ -1,0 +1,11 @@
+<div class="col-container">
+  <div class="col-item">
+    <h2>Edit comment</h2>
+    <%= form_with(model: [ @comment.post, @comment ], local: true ) do |f| %>
+      <%= f.text_area :body, autofocus: true, size: '35x2' %><br/>
+      <%= f.submit 'Comment' %>
+    <% end %>
+    <br/>
+    <%= link_to 'Cancel', root_path, class: 'button'%>
+  </div>
+</div>
