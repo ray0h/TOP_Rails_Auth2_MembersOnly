@@ -8,7 +8,9 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def require_token
-    redirect_to new_user_registration_path unless params[:user][:signup_token] == 'secret'
+    return unless params[:user][:signup_token] == 'secret'
+
+    redirect_to new_user_registration_path
     flash[:error] = 'You must enter the required secret Signup Token.'
   end
 end
