@@ -1,3 +1,5 @@
+<%# Post show route used to edit comments %>
+
 <div class="col-container">
   <div class="col-item">
     <% if user_signed_in? %>
@@ -8,7 +10,6 @@
     <p>
       <em><%= @post.body %></em>
     </p>
-  <%# render @post.comments %>
   <%= render 'comments/form'%>
   </div>
 </div>

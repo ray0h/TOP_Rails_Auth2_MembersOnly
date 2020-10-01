@@ -5,10 +5,14 @@
       <h2 class='center-text'>Create a Post!<h2>
     </div>
   <% end %>
+
   <% @posts.each do |post| %>
     <div class="col-item">
+    
       <h3 class='marg-0'>
         <u>Post</u>
+
+        <%# Can only edit / delete your posts %>
         <% if user_signed_in? && current_user.id == post.user.id %>
           <%= link_to edit_post_path(post), class: 'blank-link white-color' do %>
             <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -18,21 +22,27 @@
           <% end %>
         <% end %>
       </h3>
+
+      <%# Post username %>
       <% if user_signed_in? %>
         <p class="marg-5"><%= post.user.username %>, <small><%= distance_of_time_in_words(Time.now, post.created_at) %> ago</small></p>
       <% else %>
         <p><strong>Anon</strong>, <small><%= distance_of_time_in_words(Time.now, post.created_at) %> ago</small></p>
       <% end %>
+
+      <%# Post body %>
       <p>
         <em><%= post.body %></em>
       </p>
+
+      <%# Post comments %>
       <% if post.comments.count > 0 %>
- 
           <h3 class='marg-0'><u>Comments</u></h3>
           <%= render post.comments.order('created_at DESC') %>
-    
       <% end %>
       <br/>
+
+      <%# Can only comment if signed in %>
       <% if user_signed_in? %>
         <%= link_to 'Comment', post_path(post), class: 'button' %>
       <% end %>
